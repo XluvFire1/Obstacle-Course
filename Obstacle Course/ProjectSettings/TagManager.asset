@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Hit
+  - BackGround
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Over BackGround
   - Water
   - UI
   - 
@@ -40,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Top Layer
+    uniqueID: 1275478935
     locked: 0
