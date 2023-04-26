@@ -87,17 +87,17 @@ public class RobloxianController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("JumpPad"))
+        //if (other.gameObject.CompareTag("JumpPad"))
         {
-            velocity.y = Mathf.Sqrt(8f * -2f * gravity);
+            //velocity.y = Mathf.Sqrt(8f * -2f * gravity);
         }
-        else if (other.gameObject.CompareTag("JumpPadToSky"))
+       // else if (other.gameObject.CompareTag("JumpPadToSky"))
         {
-            velocity.y = Mathf.Sqrt(40f * -2f * gravity);
+            //velocity.y = Mathf.Sqrt(40f * -2f * gravity);
         }
-        else if (other.gameObject.CompareTag("JumpPadMush"))
+        //else if (other.gameObject.CompareTag("JumpPadMush"))
         {
-            velocity.y = Mathf.Sqrt(52f * -2f * gravity);
+            //velocity.y = Mathf.Sqrt(52f * -2f * gravity);
         }
     }
 }

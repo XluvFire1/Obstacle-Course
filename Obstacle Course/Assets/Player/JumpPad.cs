@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class JumpPad : MonoBehaviour
 {
-    // Update is called once per frame
-    public float gravity = -9.81f;
-    public float jumpHeight = 3f;
-    public GameObject thePlayer;
-    Vector3 velocity;
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        //thePlayer.transform.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        if (collision.gameObject.name == "Enemy")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
+

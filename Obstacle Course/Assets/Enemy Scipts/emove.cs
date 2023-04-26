@@ -42,7 +42,5 @@ public class emove : MonoBehaviour
         {
             transform.LookAt(target);
         }
-
-
     }
 }
