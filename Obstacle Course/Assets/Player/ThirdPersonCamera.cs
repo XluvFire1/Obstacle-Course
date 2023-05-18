@@ -16,11 +16,12 @@ public class ThirdPersonCamera : MonoBehaviour
     public float heightOffset = 0.5f;
 
     //private variables are hidden in editor
-    private bool isPaused = false;
+    private bool isPaused = false ;
 
-    // Use this for initialization
+    // Use this for initialization 
     void Start()
     {
+        
         //place the camera and set the forward vector to match player
         theCamera.transform.forward = gameObject.transform.forward;
         //hide the cursor and lock the cursor to center
@@ -31,9 +32,21 @@ public class ThirdPersonCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IEnumerator OnTriggerEnter(Collider col)
+        {
+            if (col.CompareTag("Enemy"))
+            {
+                yield return new WaitForSeconds(5f);
+                Cursor.visible = true;
+            }
+
+        }
+
+
         //if escape key (default) is pressed, pause the game (feel free to change this)
         if (Input.GetButton("Cancel"))
         {
+            isPaused = true;
             //flip the isPaused state, hide/unhide the cursor, flip the lock state
             isPaused = !isPaused;
             Cursor.visible = !Cursor.visible;
@@ -44,6 +57,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
         if (!isPaused)
         {
+
             //if we are not paused, get the mouse movement and adjust the camera
             //position and rotation to reflect this movement around player
             Vector2 cameraMovement = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));

@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class RobloxianController : MonoBehaviour
 {
+    public bool Dead;
     public CharacterController controller;
     public Transform cam;
     public Transform groundCheck;
     public Animator animator;
+    public bool isGameOver = false;
+    private ReloadScene _Scene;
+    public GameObject player;
+
+
+
 
     public float gravity = -9.81f;
 
@@ -28,13 +35,18 @@ public class RobloxianController : MonoBehaviour
     float turnSmoothVelocity;
 
     // Update is called once per frame
+    
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //if (_Scene.isGameOver == false)
+        {
+            //Destroy(this);
+        }
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -83,21 +95,5 @@ public class RobloxianController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //if (other.gameObject.CompareTag("JumpPad"))
-        {
-            //velocity.y = Mathf.Sqrt(8f * -2f * gravity);
-        }
-       // else if (other.gameObject.CompareTag("JumpPadToSky"))
-        {
-            //velocity.y = Mathf.Sqrt(40f * -2f * gravity);
-        }
-        //else if (other.gameObject.CompareTag("JumpPadMush"))
-        {
-            //velocity.y = Mathf.Sqrt(52f * -2f * gravity);
-        }
     }
 }
