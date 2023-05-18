@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class emove : MonoBehaviour
 {
-   
+    private int ZombiesKilled = 0;
+
+    public TextMeshProUGUI ZombiesText;
     CharacterController _controller;
     Transform target;
     GameObject Player;
@@ -31,7 +35,17 @@ public class emove : MonoBehaviour
         _controller = GetComponent<CharacterController>();
         
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Enemy")
+        {
 
+            ZombiesKilled++;
+            ZombiesText.text = "Enemy: " + ZombiesKilled.ToString();
+            Debug.Log(ZombiesKilled);
+            // Destroy(other.gameObject);
+        }
+    }
     // Update is called once per frame
     void Update()
     {

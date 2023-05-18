@@ -20,7 +20,7 @@ public class ZombieCounter : MonoBehaviour
             ZombiesKilled++;
             ZombiesText.text = "Enemy: " + ZombiesKilled.ToString();
             Debug.Log(ZombiesKilled);
-            Destroy(other.gameObject);
+           // Destroy(other.gameObject);
         }
     }
 }
